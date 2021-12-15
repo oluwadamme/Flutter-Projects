@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "191414801465",
+    "firebase_url": "https://advance-metering-default-rtdb.firebaseio.com",
+    "project_id": "advance-metering",
+    "storage_bucket": "advance-metering.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:191414801465:android:af900d3f6173757104a9e8",
+        "android_client_info": {
+          "package_name": "com.example.dada_money"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "191414801465-dv3nsmpfb6trvmnqdf9di3mdipmr1ic4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA4rA09_4cV21bI3ihI4nnoc_C64T5aOZE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "191414801465-dv3nsmpfb6trvmnqdf9di3mdipmr1ic4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
