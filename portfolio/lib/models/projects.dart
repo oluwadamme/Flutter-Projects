@@ -6,10 +6,10 @@ class Project {
 
 List<Project> demo_projects = [
   Project(
-    title: "Responsive Portfolio - Flutter UI",
-    description:
-        "On Flutter V2.* web officially supported on a stable branch. Today I share an Admin panel or you can call it dashboard UI build with flutter. Now you can build your app dashboard using flutter. This dashboard contains almost everything that you need like a chart, table, nice small card for showing info.",
-  ),
+      title: "Responsive Portfolio Web App",
+      description:
+          "Using Flutter, I can develop your responsive web apps that suit your needs which displays nicely on all devices",
+      url: 'https://github.com/oluwadamme/flutter-demo/tree/main/portfolio'),
   Project(
       title: "Notify App",
       description:
@@ -19,7 +19,7 @@ List<Project> demo_projects = [
       title: "EtrackPay",
       description:
           "An energy smart prepaid meter payment app for estate tenants",
-      url: 'https://github.com/oluwadamme/'),
+      url: 'https://github.com/oluwadamme/EtrackPay'),
   Project(
       title: "Mediminder",
       description:
@@ -29,17 +29,17 @@ List<Project> demo_projects = [
       title: "StartHub",
       description:
           "An open source project that connects people that are interested in tech for training and mentor",
-      url: 'https://github.com/oluwadamme/'),
+      url: 'https://github.com/oluwadamme/starthub_mobile_pjt_02'),
   Project(
       title: "ZuriChat",
       description:
           "An open source project where people in a team can connect and communicate. it is like a slack clone",
-      url: 'https://github.com/oluwadamme/'),
+      url: 'https://github.com/oluwadamme/zc_app'),
   Project(
       title: "Dada_money",
       description:
           "An energy smart prepaid meter payment app. It is for a final year project",
-      url: 'https://github.com/oluwadamme/'),
+      url: 'https://github.com/oluwadamme/flutter-demo/tree/main/dada_money'),
   Project(
       title: "Electrify",
       description:

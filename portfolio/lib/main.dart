@@ -7,8 +7,9 @@ import 'package:portfolio/models/projects.dart';
 import 'package:portfolio/models/responsive.dart';
 import 'package:portfolio/screens/email.dart';
 import 'package:portfolio/screens/home_screen.dart';
+import 'package:url_launcher/url_launcher.dart';
 
-void main() async {
+void main() {
   runApp(const MyApp());
 }
 
@@ -161,7 +162,7 @@ class ProjectGrid extends StatelessWidget {
   const ProjectGrid({
     Key? key,
     this.crossAxisCount = 3,
-    this.childAspectRatio = 1.3,
+    this.childAspectRatio = 1.9,
   }) : super(key: key);
   final int crossAxisCount;
   final double childAspectRatio;
@@ -191,9 +192,16 @@ class ProjectCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: secondaryColor,
-      padding: const EdgeInsets.all(defaultPadding),
+    return ElevatedButton(
+      onPressed: () async {
+        String _url = project.url!;
+        if (!await launch(_url)) throw 'Could not launch $_url';
+      },
+      style: TextButton.styleFrom(
+        onSurface: secondaryColor,
+        backgroundColor: secondaryColor,
+        padding: const EdgeInsets.all(defaultPadding),
+      ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
