@@ -27,12 +27,12 @@ dev_dependencies:
     sdk: flutter
   integration_test:
     sdk: flutter
-  flutter_launcher_icons: ^0.7.2
+  flutter_launcher_icons: ^0.9.2
   flutter_lints: ^1.0.0
 
 flutter_icons:
   android: "launcher_icon" 
-  ios: false
+  ios: "launcher_icon"
   image_path: "assets/logo/Notify_logo.jpeg"
 
 # For information on the generic Dart part of this file, see the

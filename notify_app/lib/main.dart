@@ -1,23 +1,41 @@
 import 'package:flutter/material.dart';
 import 'package:notify_app/screens/home.dart';
+import 'package:provider/provider.dart';
+
+import 'utils/global_bloc.dart';
 
 void main() {
   runApp(const MyApp());
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   const MyApp({Key? key}) : super(key: key);
 
-  // This widget is the root of your application.
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  late GlobalBloc globalBloc;
+
+  @override
+  void initState() {
+    globalBloc = GlobalBloc();
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Notify App',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
+    return Provider<GlobalBloc>.value(
+      value: globalBloc,
+      child: MaterialApp(
+        theme: ThemeData(
+          primarySwatch: Colors.amber,
+          brightness: Brightness.light,
+        ),
+        home: HomePage(),
+        debugShowCheckedModeBanner: false,
       ),
-      home: const HomePage(),
     );
   }
 }
