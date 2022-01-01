@@ -33,7 +33,7 @@ class _MyAppState extends State<MyApp> {
           primarySwatch: Colors.amber,
           brightness: Brightness.light,
         ),
-        home: HomePage(),
+        home: const HomePage(),
         debugShowCheckedModeBanner: false,
       ),
     );

@@ -1,4 +1,5 @@
 import 'dart:math';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:notify_app/model/notify.dart';
@@ -282,20 +283,36 @@ class _NewEntryState extends State<NewEntry> {
   }
 
   initializeNotifications() async {
-    var initializationSettingsAndroid =
-        AndroidInitializationSettings('@mipmap/launcher_icon');
-    var initializationSettingsIOS = IOSInitializationSettings();
-    var initializationSettings = InitializationSettings(
-        android: initializationSettingsAndroid, iOS: initializationSettingsIOS);
+    const AndroidInitializationSettings initializationSettingsAndroid =
+        AndroidInitializationSettings('ic_launcher');
+    final IOSInitializationSettings initializationSettingsIOS =
+        IOSInitializationSettings(
+            onDidReceiveLocalNotification: onDidReceiveLocalNotification);
+    final InitializationSettings initializationSettings =
+        InitializationSettings(
+            android: initializationSettingsAndroid,
+            iOS: initializationSettingsIOS);
     await flutterLocalNotificationsPlugin!.initialize(initializationSettings,
         onSelectNotification: onSelectNotification);
   }
 
-  void onSelectNotification(String? payload) {
+  void onDidReceiveLocalNotification(
+      int id, String? title, String? body, String? payload) async {
+    // display a dialog with the notification details, tap ok to go to another page
     if (payload != null) {
       debugPrint('notification payload: ' + payload);
     }
-    Navigator.push(
+    await Navigator.push(
+      context,
+      new MaterialPageRoute(builder: (context) => HomePage()),
+    );
+  }
+
+  void onSelectNotification(String? payload) async {
+    if (payload != null) {
+      debugPrint('notification payload: ' + payload);
+    }
+    await Navigator.push(
       context,
       new MaterialPageRoute(builder: (context) => HomePage()),
     );
