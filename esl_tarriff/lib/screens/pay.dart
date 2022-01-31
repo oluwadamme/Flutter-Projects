@@ -1,10 +1,12 @@
-import 'package:dada_money/constant.dart';
+
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_paystack/flutter_paystack.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+
+import '../constant.dart';
 
 class Pay extends StatefulWidget {
   const Pay({Key key}) : super(key: key);
@@ -162,7 +164,7 @@ class _PayState extends State<Pay> {
                   ),
                   child: TextFormField(
                     controller: _meterId,
-                    keyboardType: TextInputType.number,
+                    //keyboardType: TextInputType.number,
                     validator: (value) =>
                         value.isNotEmpty ? null : "Cannot be empty",
                     //onChanged: (value) => setState(() => _meterId.text = value),

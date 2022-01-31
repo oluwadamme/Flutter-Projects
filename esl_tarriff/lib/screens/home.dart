@@ -1,10 +1,12 @@
-import 'package:dada_money/constant.dart';
-import 'package:dada_money/models/user.dart';
-import 'package:dada_money/screens/loading.dart';
-import 'package:dada_money/screens/pay.dart';
+
+import 'package:esl_tarriff/models/user.dart';
+import 'package:esl_tarriff/screens/pay.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+
+import '../constant.dart';
+import 'loading.dart';
 
 class Home extends StatefulWidget {
   const Home({Key key}) : super(key: key);

@@ -1,8 +1,10 @@
-import 'package:dada_money/constant.dart';
-import 'package:dada_money/services/auth.dart';
+
+import 'package:esl_tarriff/services/auth.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+
+import '../constant.dart';
 
 class Login extends StatefulWidget {
   const Login({
@@ -25,6 +27,7 @@ class _LoginState extends State<Login> {
     super.initState();
   }
 
+  bool isLoading = false;
   @override
   void dispose() {
     _email.dispose();
@@ -146,20 +149,30 @@ class _LoginState extends State<Login> {
                               ))),
                     ),
                   ),
-                  RoundedButton(
-                    text: "LOGIN",
-                    press: () async {
-                      if (_formkey.currentState.validate()) {
-                        SharedPreferences pref =
-                            await SharedPreferences.getInstance();
-                        pref.setString('email', _email.text);
-                        String email = _email.text + '@gmail.com';
-                        await loginProvider.login(email, _password.text);
-                      }
-                    },
-                    color: kPrimaryColor,
-                    textColor: kTextFieldFillColor,
-                  ),
+                  !isLoading
+                      ? RoundedButton(
+                          text: "LOGIN",
+                          press: () async {
+                            if (_formkey.currentState.validate()) {
+                              setState(() {
+                                isLoading = true;
+                              });
+                              SharedPreferences pref =
+                                  await SharedPreferences.getInstance();
+                              pref.setString('email', _email.text);
+                              String email = _email.text + '@gmail.com';
+                              await loginProvider.login(email, _password.text);
+                            }
+                          },
+                          color: kPrimaryColor,
+                          textColor: kTextFieldFillColor,
+                        )
+                      : const Center(
+                        child:  CircularProgressIndicator(
+                            valueColor:
+                                AlwaysStoppedAnimation<Color>(kPrimaryColor),
+                          ),
+                      ),
                 ],
               ),
             ),

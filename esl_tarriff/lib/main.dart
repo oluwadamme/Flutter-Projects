@@ -1,5 +1,5 @@
-import 'package:dada_money/models/user.dart';
-import 'package:dada_money/services/auth.dart';
+
+import 'package:esl_tarriff/services/auth.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
