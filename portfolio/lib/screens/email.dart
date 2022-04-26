@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:mailto/mailto.dart';
-import 'package:portfolio/constant.dart';
+import 'package:portfolio/utils/constant.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class EmailSender extends StatefulWidget {
