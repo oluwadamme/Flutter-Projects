@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:portfolio/screens/side_menu/side_menu.dart';
 import 'package:portfolio/utils/constant.dart';
 import 'package:portfolio/models/responsive.dart';
-import 'package:portfolio/screens/email.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key, required this.children}) : super(key: key);

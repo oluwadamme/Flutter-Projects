@@ -41,7 +41,7 @@ class SideMenu extends StatelessWidget {
                   TextButton(
                       onPressed: () async {
                         String _url =
-                            'https://firebasestorage.googleapis.com/v0/b/portfolio-8cdd7.appspot.com/o/Damilola-Adeniyi.pdf?alt=media&token=545a0104-e2ff-424e-a244-dccae2442f98';
+                            'https://firebasestorage.googleapis.com/v0/b/portfolio-8cdd7.appspot.com/o/Damilola%20Adeniyi%20CV.pdf?alt=media&token=2d264ac1-dd7c-45ba-b485-0e0c33a1b33e';
                         if (!await launch(_url)) throw 'Could not launch $_url';
                       },
                       child: FittedBox(
@@ -55,8 +55,8 @@ class SideMenu extends StatelessWidget {
                                       .bodyText1!
                                       .color),
                             ),
-                            SizedBox(width: defaultPadding / 2),
-                            SvgPicture.asset("assets/icons/download.svg")
+                            // SizedBox(width: defaultPadding / 2),
+                            // SvgPicture.asset("assets/icons/download.svg")
                           ],
                         ),
                       )),

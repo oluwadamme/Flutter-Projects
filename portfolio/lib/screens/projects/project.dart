@@ -44,7 +44,7 @@ class ProjectGrid extends StatelessWidget {
   const ProjectGrid({
     Key? key,
     this.crossAxisCount = 3,
-    this.childAspectRatio = 1.9,
+    this.childAspectRatio = 1.6,
   }) : super(key: key);
   final int crossAxisCount;
   final double childAspectRatio;
@@ -74,33 +74,47 @@ class ProjectCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ElevatedButton(
-      onPressed: () async {
-        String _url = project.url!;
-        if (!await launch(_url)) throw 'Could not launch $_url';
-      },
-      style: TextButton.styleFrom(
-        onSurface: secondaryColor,
-        backgroundColor: secondaryColor,
-        padding: const EdgeInsets.all(defaultPadding),
-      ),
-      child: Column(
+    return Container(
+      padding: const EdgeInsets.all(defaultPadding),
+      decoration: BoxDecoration(color: secondaryColor),
+      child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
-            project.title!,
-            maxLines: 2,
-            style: Theme.of(context).textTheme.subtitle2,
-            overflow: TextOverflow.ellipsis,
+          Image.asset(
+            project.images!,
           ),
           const SizedBox(
-            height: defaultPadding,
+            width: defaultPadding / 1.5,
           ),
-          Text(
-            project.description!,
-            maxLines: Responsive.isMobileLarge(context) ? 3 : 4,
-            overflow: TextOverflow.ellipsis,
-            style: const TextStyle(height: 1.5),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  project.title!,
+                  style: Theme.of(context).textTheme.subtitle2,
+                  overflow: TextOverflow.ellipsis,
+                ),
+                Text(
+                  project.description!,
+                  maxLines: Responsive.isMobileLarge(context) ? 3 : 4,
+                  overflow: TextOverflow.ellipsis,
+                  style: const TextStyle(height: 1.5),
+                ),
+                GestureDetector(
+                    onTap: () async {
+                      String _url = project.url!;
+                      if (!await launch(_url)) throw 'Could not launch $_url';
+                    },
+                    child: Text(
+                      'Click Here',
+                      style: TextStyle(
+                          decoration: TextDecoration.underline,
+                          color: Colors.white),
+                    ))
+              ],
+            ),
           ),
         ],
       ),

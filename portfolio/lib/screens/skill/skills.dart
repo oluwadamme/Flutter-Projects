@@ -30,7 +30,7 @@ class Skills extends StatelessWidget {
             SizedBox(width: defaultPadding),
             Expanded(
               child: AniminatedCircularProgressIndicator(
-                label: "Firebase",
+                label: "RESTful API",
                 percentage: 0.8,
               ),
             ),

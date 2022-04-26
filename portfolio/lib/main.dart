@@ -1,11 +1,8 @@
-import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:portfolio/component/highlight_info.dart';
 import 'package:portfolio/screens/projects/project.dart';
 import 'package:portfolio/utils/constant.dart';
-import 'package:portfolio/models/responsive.dart';
-import 'package:portfolio/screens/email.dart';
 import 'package:portfolio/screens/home_screen.dart';
 
 import 'screens/home_banner/home_banner.dart';
@@ -39,7 +36,6 @@ class MyApp extends StatelessWidget {
           HighLightsInfo(),
           Divider(),
           MyProjects(),
-          //Recommendations()
         ],
       ),
     );
