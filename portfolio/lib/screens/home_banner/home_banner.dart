@@ -30,12 +30,16 @@ class HomeBanner extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  'Discover my Awesome \nArt Space!',
+                  'Discover my Awesome \nDesign and Development World!',
                   style: Responsive.isDesktop(context)
-                      ? Theme.of(context).textTheme.headline3!.copyWith(
-                          fontWeight: FontWeight.bold, color: Colors.white)
-                      : Theme.of(context).textTheme.headline5!.copyWith(
-                          fontWeight: FontWeight.bold, color: Colors.white),
+                      ? Theme.of(context)
+                          .textTheme
+                          .displaySmall!
+                          .copyWith(fontWeight: FontWeight.bold, color: Colors.white)
+                      : Theme.of(context)
+                          .textTheme
+                          .headlineSmall!
+                          .copyWith(fontWeight: FontWeight.bold, color: Colors.white),
                 ),
                 if (Responsive.isMobileLarge(context))
                   const SizedBox(
@@ -50,19 +54,14 @@ class HomeBanner extends StatelessWidget {
                     onPressed: () {
                       // String _url = 'adeniyidamilola@gmail.com';
                       // if (!await launch(_url)) throw 'Could not launch $_url';
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => EmailSender()));
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => EmailSender()));
                     },
                     child: const Text(
                       "Contact me",
                       style: TextStyle(color: darkColor),
                     ),
                     style: TextButton.styleFrom(
-                        padding: const EdgeInsets.symmetric(
-                            horizontal: defaultPadding * 2,
-                            vertical: defaultPadding),
+                        padding: const EdgeInsets.symmetric(horizontal: defaultPadding * 2, vertical: defaultPadding),
                         backgroundColor: primaryColor),
                   )
               ],

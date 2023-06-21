@@ -1,5 +1,5 @@
 name: portfolio
-description: This app showcases the flutter projects i have developed and contributed to. some are not included in my github repo because they are private and it is for clients.
+description: This web app showcases the flutter projects i have developed and contributed to. some are not included in my private github repo.
 
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 
@@ -29,6 +29,15 @@ dev_dependencies:
 
 
   flutter_lints: ^1.0.0
+  flutter_launcher_icons: "^0.13.1"
+
+flutter_launcher_icons:
+  android: false
+  ios: false
+  web:
+    generate: true
+    image_path: "assets/images/dammy.JPG"
+    
 
 
 flutter:

@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:portfolio/screens/email.dart';
 import 'package:portfolio/utils/constant.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class AreaInfo extends StatelessWidget {
   const AreaInfo({
@@ -36,7 +39,7 @@ class MyInfo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AspectRatio(
-      aspectRatio: 1.23,
+      aspectRatio: 1.1,
       child: Container(
         color: secondaryColor,
         child: Column(
@@ -51,7 +54,7 @@ class MyInfo extends StatelessWidget {
             Spacer(),
             Text(
               "Damilola Adeniyi",
-              style: Theme.of(context).textTheme.subtitle2,
+              style: Theme.of(context).textTheme.titleSmall,
             ),
             Text(
               'Flutter Developer & Software Developer',
@@ -61,6 +64,38 @@ class MyInfo extends StatelessWidget {
             Spacer(
               flex: 2,
             ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                IconButton(
+                    onPressed: () async {
+                      String _url = 'https://www.linkedin.com/in/adeniyi-damilola-01/';
+                      if (!await launch(_url)) throw 'Could not launch $_url';
+                    },
+                    icon: SvgPicture.asset("assets/icons/linkedin.svg")),
+                IconButton(
+                    onPressed: () async {
+                      String _url = 'https://github.com/oluwadamme';
+                      if (!await launch(_url)) throw 'Could not launch $_url';
+                    },
+                    icon: SvgPicture.asset("assets/icons/github.svg")),
+                IconButton(
+                    onPressed: () async {
+                      String _url = 'https://twitter.com/etz_dammie';
+                      if (!await launch(_url)) throw 'Could not launch $_url';
+                    },
+                    icon: SvgPicture.asset("assets/icons/twitter.svg")),
+                IconButton(
+                  onPressed: () {
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => EmailSender()));
+                  },
+                  icon: Icon(
+                    Icons.email_rounded,
+                    color: bodyTextColor,
+                  ),
+                ),
+              ],
+            )
           ],
         ),
       ),

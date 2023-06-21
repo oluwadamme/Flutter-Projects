@@ -49,62 +49,13 @@ class SideMenu extends StatelessWidget {
                           children: [
                             Text(
                               "DOWNLOAD CV",
-                              style: TextStyle(
-                                  color: Theme.of(context)
-                                      .textTheme
-                                      .bodyText1!
-                                      .color),
+                              style: TextStyle(color: Theme.of(context).textTheme.bodyText1!.color),
                             ),
                             // SizedBox(width: defaultPadding / 2),
                             // SvgPicture.asset("assets/icons/download.svg")
                           ],
                         ),
                       )),
-                  Container(
-                    margin: EdgeInsets.only(top: defaultPadding),
-                    color: Color(0xFF24242E),
-                    child: Row(
-                      children: [
-                        Spacer(),
-                        IconButton(
-                            onPressed: () async {
-                              String _url =
-                                  'https://www.linkedin.com/in/adeniyi-damilola-01/';
-                              if (!await launch(_url))
-                                throw 'Could not launch $_url';
-                            },
-                            icon:
-                                SvgPicture.asset("assets/icons/linkedin.svg")),
-                        IconButton(
-                            onPressed: () async {
-                              String _url = 'https://github.com/oluwadamme';
-                              if (!await launch(_url))
-                                throw 'Could not launch $_url';
-                            },
-                            icon: SvgPicture.asset("assets/icons/github.svg")),
-                        IconButton(
-                            onPressed: () async {
-                              String _url = 'https://twitter.com/etz_dammie';
-                              if (!await launch(_url))
-                                throw 'Could not launch $_url';
-                            },
-                            icon: SvgPicture.asset("assets/icons/twitter.svg")),
-                        IconButton(
-                          onPressed: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => EmailSender()));
-                          },
-                          icon: Icon(
-                            Icons.email_rounded,
-                            color: bodyTextColor,
-                          ),
-                        ),
-                        Spacer()
-                      ],
-                    ),
-                  )
                 ],
               ),
             )),

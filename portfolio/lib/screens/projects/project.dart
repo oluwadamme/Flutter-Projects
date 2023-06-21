@@ -16,10 +16,7 @@ class MyProjects extends StatelessWidget {
       children: [
         Text(
           "My Projects",
-          style: Theme.of(context)
-              .textTheme
-              .headline6!
-              .copyWith(color: Colors.white),
+          style: Theme.of(context).textTheme.titleLarge!.copyWith(color: Colors.white),
         ),
         const SizedBox(
           height: defaultPadding,
@@ -74,49 +71,53 @@ class ProjectCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.all(defaultPadding),
-      decoration: BoxDecoration(color: secondaryColor),
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Image.asset(
-            project.images!,
-          ),
-          const SizedBox(
-            width: defaultPadding / 1.5,
-          ),
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  project.title!,
-                  style: Theme.of(context).textTheme.subtitle2,
-                  overflow: TextOverflow.ellipsis,
-                ),
-                Text(
-                  project.description!,
-                  maxLines: Responsive.isMobileLarge(context) ? 3 : 4,
-                  overflow: TextOverflow.ellipsis,
-                  style: const TextStyle(height: 1.5),
-                ),
-                GestureDetector(
-                    onTap: () async {
-                      String _url = project.url!;
-                      if (!await launch(_url)) throw 'Could not launch $_url';
-                    },
-                    child: Text(
-                      'Click Here',
-                      style: TextStyle(
-                          decoration: TextDecoration.underline,
-                          color: Colors.white),
-                    ))
-              ],
+    return InkWell(
+      onTap: () async {
+        String _url = project.url!;
+        if (!await launch(_url)) throw 'Could not launch $_url';
+      },
+      child: Container(
+        padding: const EdgeInsets.all(defaultPadding),
+        decoration: BoxDecoration(color: secondaryColor),
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Image.asset(
+              project.images!,
             ),
-          ),
-        ],
+            const SizedBox(
+              width: defaultPadding / 1.5,
+            ),
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    project.title!,
+                    style: Theme.of(context).textTheme.titleSmall,
+                    overflow: TextOverflow.ellipsis,
+                  ),
+                  Text(
+                    project.description!,
+                    maxLines: Responsive.isMobileLarge(context) ? 3 : 4,
+                    overflow: TextOverflow.ellipsis,
+                    style: const TextStyle(height: 1.5),
+                  ),
+                  GestureDetector(
+                      onTap: () async {
+                        String _url = project.url!;
+                        if (!await launch(_url)) throw 'Could not launch $_url';
+                      },
+                      child: Text(
+                        'Click Here',
+                        style: TextStyle(decoration: TextDecoration.underline, color: Colors.white),
+                      ))
+                ],
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
